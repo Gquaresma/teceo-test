@@ -22,6 +22,7 @@
     "@mikro-orm/migrations": "^5.9.3",
     "@mikro-orm/postgresql": "^5.9.3",
     "@paralleldrive/cuid2": "^2.2.2",
+    "axios": "^1.6.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
