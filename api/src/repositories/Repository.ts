@@ -36,7 +36,7 @@ abstract class Repository implements IRepository {
     try {
       return await (
         await this.connection
-      ).findOneOrFail(this.entityName, condition, {
+      ).findOne(this.entityName, condition, {
         fields,
         refresh: true,
         disableIdentityMap: true,
@@ -62,7 +62,7 @@ abstract class Repository implements IRepository {
       });
     } catch (error) {
       console.log(error);
-      return []
+      return [];
     }
   }
 }

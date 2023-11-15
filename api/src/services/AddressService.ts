@@ -10,7 +10,7 @@ class AddressService extends Service {
   }
 
   async save(data: addressDTO) {
-    return super.save(data);
+    return super.save([data]);
   }
 
   async findUnique(cep: string) {
@@ -18,6 +18,7 @@ class AddressService extends Service {
 
     if (!data) {
       const address = await CepApiService.getCep(cep);
+
       return this.save(address);
     }
 
