@@ -1,6 +1,7 @@
 import { EntityManager } from "@mikro-orm/core";
 import IRepository from "../types/repository";
 import { createId } from "@paralleldrive/cuid2";
+import { DatabaseError } from "../errors/DatabaseError";
 
 abstract class Repository implements IRepository {
   protected connection: Promise<EntityManager>;
@@ -27,8 +28,8 @@ abstract class Repository implements IRepository {
       );
 
       return objects;
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      return new DatabaseError(error.message);
     }
   }
 
@@ -41,8 +42,8 @@ abstract class Repository implements IRepository {
         refresh: true,
         disableIdentityMap: true,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      return new DatabaseError(error.message);
     }
   }
 
@@ -50,7 +51,7 @@ abstract class Repository implements IRepository {
     condition = {},
     fields: any[] = ["*"],
     options: any = { orderBy: { createdAt: "DESC" } }
-  ): Promise<any[]> {
+  ): Promise<any> {
     try {
       return await (
         await this.connection
@@ -60,9 +61,8 @@ abstract class Repository implements IRepository {
         refresh: true,
         disableIdentityMap: true,
       });
-    } catch (error) {
-      console.log(error);
-      return [];
+    } catch (error: any) {
+      return new DatabaseError(error.message);
     }
   }
 }

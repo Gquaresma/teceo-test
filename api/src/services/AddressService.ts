@@ -3,6 +3,7 @@ import AddresRepository from "../repositories/AddresRepository";
 import IRepository from "../types/repository";
 import { addressDTO } from "../types/address";
 import CepApiService from "./CepApiService";
+import { NotFoundError } from "../errors/NotFoundError";
 
 class AddressService extends Service {
   constructor(repo: IRepository) {
@@ -18,13 +19,13 @@ class AddressService extends Service {
 
     const data = await super.findUnique({ cep: cepWithHifen });
 
-    if (!data) {
-      const address = await CepApiService.getCep(originalCep);
+    if (data) return data;
 
-      return this.save(address);
-    }
+    const address = await CepApiService.getCep(originalCep);
 
-    return data;
+    if (address.erro) throw new NotFoundError("CEP não encontrado");
+
+    return this.save(address);
   }
 }
 

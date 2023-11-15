@@ -18,7 +18,6 @@ class AddresController extends Controller {
       return success(await this.service.findUnique(cep));
   
     } catch (error) {
-      console.log(error);
       return errorResponses(error);
     }
   }

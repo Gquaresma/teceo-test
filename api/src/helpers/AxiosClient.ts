@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios";
+import { APIExternalError } from "../errors/APIExternalError";
 
 class AxiosClient {
   private instance: AxiosInstance;
@@ -11,8 +12,8 @@ class AxiosClient {
     try {
       const response = await this.instance.get(url);
       return response.data;
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      throw new APIExternalError(error.message);
     }
   }
 }
