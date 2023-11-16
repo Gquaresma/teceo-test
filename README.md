@@ -1,6 +1,9 @@
 # Teceo teste técnico
 Projeto criado para a seleção do cargo Desenvolvedor, da Teceo. O projeto utiliza React.js para implementação do frontend, já para o backend, faz uso de Node.js e express. O banco de dados utilizado foi o PostgreSQL, o qual foi integrado ao backend utilizando a Mikro-orm.
 
+### Objetivo
+Elaborar uma aplicação para ajudar usuário a fazer a consulta de um CEP
+
 ### Pré-requisitos
 * Node.js 16.14.2: https://nodejs.org/en
 * Docker: https://docs.docker.com/get-docker/
