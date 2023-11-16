@@ -21,7 +21,7 @@ $ docker-compose up -d //irá iniciar o postgress
 
 $ yarn db:setup //irá criar as tableas e configurar o banco de dados
 
-$ yarn start:dev //
+$ yarn dev //
 ```
 
 4. Para execuçãos dos testes bastar utilizar o comando 
