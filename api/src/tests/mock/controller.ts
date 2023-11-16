@@ -3,9 +3,9 @@ import Controller from '../../controllers/Controller';
 class SutController extends Controller {}
 
 export const mockService = {
-	findAll: jest.fn().mockReturnValue([{ operation: 'findMany' }]),
+	findMany: jest.fn().mockReturnValue([{ operation: 'findMany' }]),
 	findUnique: jest.fn().mockReturnValue({ operation: 'findOne' }),
-	create: jest.fn().mockReturnValue({ operation: 'save' }),
+	save: jest.fn().mockReturnValue({ operation: 'create' }),
 };
 
 export const makeSutController = (service: any) => new SutController(service);
