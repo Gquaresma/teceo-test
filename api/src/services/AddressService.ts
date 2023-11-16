@@ -15,13 +15,15 @@ class AddressService extends Service {
   }
 
   async findUnique(originalCep: string) {
-    const cepWithHifen = originalCep.replace(/^(\d{5})(\d{3})$/, "$1-$2");
+    
 
-    const data = await super.findUnique({ cep: cepWithHifen });
+    const data = await super.findUnique({ cep: originalCep });
+
+    const cepWithoutHifen = originalCep.replace(/-/g, '');
 
     if (data) return data;
 
-    const address = await CepApiService.getCep(originalCep);
+    const address = await CepApiService.getCep(cepWithoutHifen);
 
     if (address.erro) throw new NotFoundError("CEP não encontrado");
 
