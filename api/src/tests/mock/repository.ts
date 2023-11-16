@@ -8,7 +8,7 @@ const nativeUpdate = jest.fn().mockReturnValue(1);
 
 export const mockDB = {
 	find: jest.fn().mockReturnValue([{ operation: 'find' }]),
-	findUnique: jest.fn().mockReturnValue({ operation: 'findOne' }),
+	findOne: jest.fn().mockReturnValue({ operation: 'findOne' }),
 	insert,
 	insertMany,
 	transactional: jest
