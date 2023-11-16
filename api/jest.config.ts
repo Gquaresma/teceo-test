@@ -12,6 +12,7 @@ const jestConfig: Config.InitialOptions = {
 		'!<rootDir>/src/index.ts',
 		'!<rootDir>/src/errors/**/*.ts',
 		'!<rootDir>/src/routes/**/*.ts',
+		'!<rootDir>/src/helpers/**/*.ts',
 		'!<rootDir>/src/types/**/*.ts',
 		'!<rootDir>/src/tests/**/*.ts',
 	],
