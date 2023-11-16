@@ -24,7 +24,7 @@ $ yarn db:setup //irá criar as tableas e configurar o banco de dados
 $ yarn dev //
 ```
 
-4. Para execuçãos dos testes bastar utilizar o comando 
+4. Para execuçãs dos testes bastar utilizar o comando 
 ```bash
 $ yarn test
 ```
