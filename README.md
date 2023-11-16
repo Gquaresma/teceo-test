@@ -32,7 +32,9 @@ $ yarn test
 ##### Frontend
 
 1. Entre na pasta cep-consult, localizada na pasta client
+```bash
 $ cd client/cep-consult
+```
 2. Crie um arquivo .env segundo o exemplo contido no arquivo .env.example
 3. Instale as dependências necessárias utilizando o comando:
 ```bash
